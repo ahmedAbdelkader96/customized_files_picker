@@ -1,0 +1,2 @@
+/Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/arm64-v8a/CMakeFiles/rebuild_cache.dir
