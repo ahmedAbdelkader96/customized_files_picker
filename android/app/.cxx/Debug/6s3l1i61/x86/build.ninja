@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/x86/
+cmake_ninja_workdir = /Users/ahmed/Downloads/customized_files_picker/android/app/.cxx/Debug/6s3l1i61/x86/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/x86 && /Users/ahmed/Library/Android/sdk/cmake/3.22.1/bin/ccmake -S"/Volumes/Mac New/Users/Downloads/flutter/packages/flutter_tools/gradle/src/main/groovy" -B/Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/x86
+  COMMAND = cd /Users/ahmed/Downloads/customized_files_picker/android/app/.cxx/Debug/6s3l1i61/x86 && /Users/ahmed/Library/Android/sdk/cmake/3.22.1/bin/ccmake -S"/Volumes/Mac New/Users/Downloads/flutter/packages/flutter_tools/gradle/src/main/groovy" -B/Users/ahmed/Downloads/customized_files_picker/android/app/.cxx/Debug/6s3l1i61/x86
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/x86 && /Users/ahmed/Library/Android/sdk/cmake/3.22.1/bin/cmake --regenerate-during-build -S"/Volumes/Mac New/Users/Downloads/flutter/packages/flutter_tools/gradle/src/main/groovy" -B/Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/x86
+  COMMAND = cd /Users/ahmed/Downloads/customized_files_picker/android/app/.cxx/Debug/6s3l1i61/x86 && /Users/ahmed/Library/Android/sdk/cmake/3.22.1/bin/cmake --regenerate-during-build -S"/Volumes/Mac New/Users/Downloads/flutter/packages/flutter_tools/gradle/src/main/groovy" -B/Users/ahmed/Downloads/customized_files_picker/android/app/.cxx/Debug/6s3l1i61/x86
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -73,7 +73,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/ahmed/Downloads/untitled/android/app/.cxx/Debug/6s3l1i61/x86
+# Folder: /Users/ahmed/Downloads/customized_files_picker/android/app/.cxx/Debug/6s3l1i61/x86
 
 build all: phony
 

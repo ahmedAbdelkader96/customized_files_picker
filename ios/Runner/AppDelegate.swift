@@ -8,6 +8,8 @@ import UIKit
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+      FileFetcher.register(with: self.registrar(forPlugin: "FileFetcher")!)
+
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

@@ -1,4 +1,4 @@
-name: untitled
+name: customized_files_picker
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -32,6 +32,15 @@ dependencies:
     sdk: flutter
   path_provider:
   permission_handler: ^11.4.0
+  mime: ^2.0.0
+  bloc: ^9.0.0
+  flutter_bloc: ^9.0.0
+  equatable: ^2.0.7
+  fl_toast: ^3.1.0
+  shimmer: ^3.0.0
+  video_player: ^2.2.19
+  video_thumbnail: ^0.5.0
+  open_file: ^3.5.10
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
