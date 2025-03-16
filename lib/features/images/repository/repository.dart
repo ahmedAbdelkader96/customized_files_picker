@@ -12,11 +12,12 @@ class LocalImagesRepository implements ILocalImagesRepository {
 
       final Map<String, dynamic> arguments = {
         'offset': 0,
-        'limit': 100,
+        'limit': 10,
         'isAll': false,
       };
 
       final fs = await platform.invokeMethod('getLocalImages', arguments);
+
 
       List<ImageModel> images =
           (fs['files'] as List<dynamic>).map((image) {

@@ -10,12 +10,14 @@ class VideoModel {
   final Uint8List thumbnail;
   final String videoName;
   final int videoLength;
+  final String bucket;
 
   VideoModel({
     required this.path,
     required this.thumbnail,
     required this.videoName  ,
     required this.videoLength  ,
+    required this.bucket  ,
 
   } );
 

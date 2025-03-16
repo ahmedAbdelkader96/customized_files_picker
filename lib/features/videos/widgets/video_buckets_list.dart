@@ -21,7 +21,7 @@ class VideoBucketsList extends StatelessWidget {
           title: buckets[index].toString(),
           number:
           videos
-              .where((e) => e.path.contains(buckets[index]))
+              .where((e) => e.bucket == buckets[index])
               .toList()
               .length,
         );

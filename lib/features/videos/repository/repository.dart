@@ -25,6 +25,8 @@ class LocalVideosRepository implements ILocalVideosRepository {
               thumbnail: video['thumbnail'] as Uint8List,
               videoName: video['videoName'] as String,
               videoLength: video['videoLength'] as int,
+              bucket: video['bucket'] as String,
+
             );
           }).toList();
 

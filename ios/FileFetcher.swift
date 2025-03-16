@@ -49,8 +49,8 @@ public class FileFetcher: NSObject, FlutterPlugin, UIDocumentPickerDelegate {
             fetchOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             let assets = PHAsset.fetchAssets(with: fetchOptions)
-            let paginatedAssets: [PHAsset]
 
+            let paginatedAssets: [PHAsset]
             if isAll {
                 paginatedAssets = assets.objects(at: IndexSet(integersIn: 0..<assets.count))
             } else {
@@ -71,7 +71,7 @@ public class FileFetcher: NSObject, FlutterPlugin, UIDocumentPickerDelegate {
                 PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: options) { (image, _) in
                     if let filePath = self.getFilePath(for: asset),
                        let fileName = asset.value(forKey: "filename") as? String {
-                        let bucketName = self.getBucketName(from: filePath)
+                        let bucketName = self.getBucketName(for: asset)
                         files.append([
                             "filePath": filePath,
                             "bucket": bucketName,
@@ -95,8 +95,8 @@ public class FileFetcher: NSObject, FlutterPlugin, UIDocumentPickerDelegate {
             fetchOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.video.rawValue)
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             let assets = PHAsset.fetchAssets(with: fetchOptions)
-            let paginatedAssets: [PHAsset]
 
+            let paginatedAssets: [PHAsset]
             if isAll {
                 paginatedAssets = assets.objects(at: IndexSet(integersIn: 0..<assets.count))
             } else {
@@ -113,10 +113,11 @@ public class FileFetcher: NSObject, FlutterPlugin, UIDocumentPickerDelegate {
                 let options = PHVideoRequestOptions()
                 options.deliveryMode = .highQualityFormat
                 options.isNetworkAccessAllowed = true
+
                 PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (avAsset, audioMix, info) in
                     if let urlAsset = avAsset as? AVURLAsset {
                         let filePath = urlAsset.url.path
-                        let bucketName = self.getBucketName(from: filePath)
+                        let bucketName = self.getBucketName(for: asset) // Use new method
                         let thumbnail = self.generateThumbnail(url: urlAsset.url)
                         let videoLength = self.getVideoLength(url: urlAsset.url)
                         let videoName = urlAsset.url.lastPathComponent
@@ -153,8 +154,19 @@ public class FileFetcher: NSObject, FlutterPlugin, UIDocumentPickerDelegate {
         return filePath
     }
 
-    private func getBucketName(from filePath: String) -> String {
-        return URL(fileURLWithPath: filePath).deletingLastPathComponent().lastPathComponent
+    private func getBucketName(for asset: PHAsset) -> String {
+        // Fetch the collection of the asset
+        let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+        var bucketName = "Unknown"
+
+        collections.enumerateObjects { (collection, _, _) in
+            let assetsInCollection = PHAsset.fetchAssets(in: collection, options: nil)
+            if assetsInCollection.contains(asset) {
+                bucketName = collection.localizedTitle ?? "Unknown"
+            }
+        }
+
+        return bucketName
     }
 
     private func generateThumbnail(url: URL) -> Data? {

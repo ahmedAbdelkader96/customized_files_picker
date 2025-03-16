@@ -1,0 +1,2 @@
+/Users/ahmed/Documents/customized_files_picker/android/app/.cxx/Debug/2r3y4768/x86_64/CMakeFiles/edit_cache.dir
+/Users/ahmed/Documents/customized_files_picker/android/app/.cxx/Debug/2r3y4768/x86_64/CMakeFiles/rebuild_cache.dir

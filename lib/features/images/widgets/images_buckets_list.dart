@@ -26,7 +26,7 @@ class ImageBucketsList extends StatelessWidget {
           title: buckets[index].toString(),
           number:
               images
-                  .where((e) => e.path.contains('${buckets[index]}'))
+                  .where((e) => e.bucket == buckets[index])
                   .toList()
                   .length,
         );
